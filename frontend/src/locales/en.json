@@ -1,0 +1,84 @@
+{
+  "header": {
+    "title": "CryptoViz",
+    "market": "Market",
+    "news": "News",
+    "sentiment": "Sentiment",
+    "live": "Live"
+  },
+  "tabs": {
+    "market": "Market Overview",
+    "news": "Latest News",
+    "sentiment": "Sentiment Analysis"
+  },
+  "stats": {
+    "totalMarketCap": "Total Market Cap",
+    "btcDominance": "BTC Dominance",
+    "fearGreed": "Fear & Greed",
+    "extreme": "Extreme",
+    "fear": "Fear",
+    "greed": "Greed"
+  },
+  "topMovers": {
+    "title": "Top Movers",
+    "gainers": "Top Gainers",
+    "losers": "Top Losers"
+  },
+  "insights": {
+    "marketInsights": "Market Insights",
+    "sentimentInsights": "Sentiment Insights",
+    "highestLiquidity": "Highest Liquidity",
+    "mostScarceSupply": "Most Scarce Supply",
+    "highestVolume": "Highest Volume",
+    "averageSentiment": "Average Sentiment",
+    "avgConfidence": "Avg Confidence",
+    "trendingTopics": "Trending Topics",
+    "positiveImpact": "Positive Impact Predictions",
+    "negativeImpact": "Negative Impact Predictions",
+    "neutralImpact": "Neutral Impact Predictions"
+  },
+  "charts": {
+    "marketDominance": "Market Dominance",
+    "bubbleChart": "Market Bubble Chart",
+    "priceChange24h": "24h Price Change",
+    "priceChange7d": "7d Price Change"
+  },
+  "table": {
+    "rank": "Rank",
+    "name": "Name",
+    "price": "Price",
+    "change24h": "24h %",
+    "change7d": "7d %",
+    "marketCap": "Market Cap",
+    "volume": "Volume (24h)",
+    "supply": "Circulating Supply"
+  },
+  "news": {
+    "source": "Source",
+    "readMore": "Read more"
+  },
+  "sentiment": {
+    "score": "Score",
+    "confidence": "Confidence",
+    "impact": "Impact",
+    "topics": "Key Topics",
+    "positive": "Positive",
+    "negative": "Negative",
+    "neutral": "Neutral"
+  },
+  "error": {
+    "connectionError": "Connection Error",
+    "failedToConnect": "Failed to connect to streaming data. Make sure backend is running."
+  },
+  "loading": {
+    "loadingData": "Loading cryptocurrency data..."
+  },
+  "pagination": {
+    "showing": "Showing",
+    "to": "to",
+    "of": "of",
+    "cryptocurrencies": "cryptocurrencies",
+    "previous": "Previous",
+    "next": "Next"
+  }
+}

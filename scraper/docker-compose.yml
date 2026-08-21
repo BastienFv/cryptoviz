@@ -1,0 +1,122 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:11
+    container_name: cryptoviz_mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: cryptoviz
+      MYSQL_USER: scraper_user
+      MYSQL_PASSWORD: your_strong_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - cryptonet
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: cryptoviz_rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: unundxql
+      RABBITMQ_DEFAULT_PASS: eL_nu9WIuTV4UmUp56SjK1Hn3a24hpKu
+      RABBITMQ_DEFAULT_VHOST: unundxql
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - cryptonet
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  scraper-cron:
+    build:
+      context: .
+      dockerfile: scraper/Dockerfile
+    container_name: cryptoviz_scraper_cron
+    restart: always
+    env_file:
+      - .env
+    entrypoint: sh -c "while true; do python scraper/main.py; sleep 300; done"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mariadb:
+        condition: service_healthy
+    networks:
+      - cryptonet
+    volumes:
+      - ./logs:/app/logs
+
+  worker:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    container_name: cryptoviz_worker
+    restart: always
+    env_file:
+      - .env
+    command: python -m worker.main
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mariadb:
+        condition: service_healthy
+    networks:
+      - cryptonet
+
+  news_scraper:
+    build:
+      context: .
+      dockerfile: news_scraper/Dockerfile
+    container_name: cryptoviz_news_scraper
+    restart: always
+    env_file:
+      - .env
+    entrypoint: sh -c "while true; do python news_scraper/main.py; sleep 900; done"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mariadb:
+        condition: service_healthy
+    networks:
+      - cryptonet
+    volumes:
+      - ./logs:/app/logs
+
+  sentiment_worker:
+    build:
+      context: .
+      dockerfile: sentiment_worker/Dockerfile
+    container_name: cryptoviz_sentiment_worker
+    restart: always
+    env_file:
+      - .env
+    command: python sentiment_worker/main.py
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mariadb:
+        condition: service_healthy
+    networks:
+      - cryptonet
+
+volumes:
+  mariadb_data:
+
+networks:
+  cryptonet:
+    driver: bridge

@@ -1,0 +1,31 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Installer les dépendances système
+RUN apt-get update && apt-get install -y \
+    gcc \
+    default-libmysqlclient-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copier les requirements
+COPY sentiment_worker/requirements.txt /app/sentiment_worker/requirements.txt
+
+# Installer les dépendances Python
+RUN pip install --no-cache-dir -r sentiment_worker/requirements.txt
+
+# Télécharger le lexique VADER (important!)
+RUN python -c "import nltk; nltk.download('vader_lexicon')"
+
+# Copier le code du worker
+COPY sentiment_worker/ /app/sentiment_worker/
+
+# Copier le .env (sera écrasé par env_file dans docker-compose)
+COPY .env /app/.env
+
+# Variable d'environnement pour Python
+ENV PYTHONUNBUFFERED=1
+
+# Point d'entrée
+CMD ["python", "sentiment_worker/main.py"]

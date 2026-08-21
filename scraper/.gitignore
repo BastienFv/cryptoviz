@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.venv/
+venv/
+.env
+.env.*
+dist/
+build/
+.eggs/
+*.egg-info/
+logs/
+push.sh
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+!.env.example

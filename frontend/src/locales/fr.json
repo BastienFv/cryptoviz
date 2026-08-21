@@ -1,0 +1,84 @@
+{
+  "header": {
+    "title": "CryptoViz",
+    "market": "Marché",
+    "news": "Actualités",
+    "sentiment": "Sentiment",
+    "live": "En direct"
+  },
+  "tabs": {
+    "market": "Aperçu du marché",
+    "news": "Dernières actualités",
+    "sentiment": "Analyse de sentiment"
+  },
+  "stats": {
+    "totalMarketCap": "Capitalisation totale",
+    "btcDominance": "Dominance BTC",
+    "fearGreed": "Peur & Avidité",
+    "extreme": "Extrême",
+    "fear": "Peur",
+    "greed": "Avidité"
+  },
+  "topMovers": {
+    "title": "Meilleures variations",
+    "gainers": "Plus fortes hausses",
+    "losers": "Plus fortes baisses"
+  },
+  "insights": {
+    "marketInsights": "Aperçus du marché",
+    "sentimentInsights": "Aperçus de sentiment",
+    "highestLiquidity": "Liquidité la plus élevée",
+    "mostScarceSupply": "Offre la plus rare",
+    "highestVolume": "Volume le plus élevé",
+    "averageSentiment": "Sentiment moyen",
+    "avgConfidence": "Confiance moyenne",
+    "trendingTopics": "Sujets tendance",
+    "positiveImpact": "Prédictions d'impact positif",
+    "negativeImpact": "Prédictions d'impact négatif",
+    "neutralImpact": "Prédictions d'impact neutre"
+  },
+  "charts": {
+    "marketDominance": "Dominance du marché",
+    "bubbleChart": "Graphique à bulles du marché",
+    "priceChange24h": "Variation de prix 24h",
+    "priceChange7d": "Variation de prix 7j"
+  },
+  "table": {
+    "rank": "Rang",
+    "name": "Nom",
+    "price": "Prix",
+    "change24h": "24h %",
+    "change7d": "7j %",
+    "marketCap": "Capitalisation",
+    "volume": "Volume (24h)",
+    "supply": "Offre en circulation"
+  },
+  "news": {
+    "source": "Source",
+    "readMore": "Lire la suite"
+  },
+  "sentiment": {
+    "score": "Score",
+    "confidence": "Confiance",
+    "impact": "Impact",
+    "topics": "Sujets clés",
+    "positive": "Positif",
+    "negative": "Négatif",
+    "neutral": "Neutre"
+  },
+  "error": {
+    "connectionError": "Erreur de connexion",
+    "failedToConnect": "Échec de la connexion aux données en streaming. Assurez-vous que le backend est en cours d'exécution."
+  },
+  "loading": {
+    "loadingData": "Chargement des données de cryptomonnaies..."
+  },
+  "pagination": {
+    "showing": "Affichage de",
+    "to": "à",
+    "of": "sur",
+    "cryptocurrencies": "cryptomonnaies",
+    "previous": "Précédent",
+    "next": "Suivant"
+  }
+}
